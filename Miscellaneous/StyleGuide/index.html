@@ -196,7 +196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about.md" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         About
       </a>
     </li>
@@ -527,16 +527,116 @@ This page serves as both a template and as an example for how each type of docum
 <p>A brief description of the class / GDscript file.</p>
 <h2 id="properties">Properties</h2>
 <p>Each publicly accessible variable, alongside a brief description, data type, and initial value if applicable, in the following format:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property</th>
+<th align="center">Default Value</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>EXAMPLE_PROPERTY</code></td>
+<td align="center">123</td>
+<td align="center">A property, with a default value.</td>
+</tr>
+<tr>
+<td align="center"><code>EXAMPLE_PROPERTY_TEXT</code></td>
+<td align="center">"Example text!"</td>
+<td align="center">A property with a string.</td>
+</tr>
+<tr>
+<td align="center"><code>EXAMPLE_PROPERTY_DICT</code></td>
+<td align="center">{Key1: "Value",Key2: 123}</td>
+<td align="center">A property with a dictionary.</td>
+</tr>
+<tr>
+<td align="center"><code>EXAMPLE_PROPERTY_UNINIT</code></td>
+<td align="center">N/A</td>
+<td align="center">A property, without a default value.</td>
+</tr>
+</tbody>
+</table>
+<p>If there are no publicly accessible variables, then display:</p>
+<p>There are no properties for this class.</p>
+
 <h2 id="enumerations">Enumerations</h2>
 <p>A list of each enumerated type, alongside a brief description in the following format:</p>
+<p>enum Example</p>
+<ul>
+<li>EXAMPLE_ENUM1 = 0 --- A brief description of the first enum.</li>
+<li>EXAMPLE_ENUM2 = 1 --- A brief description of the second enum.</li>
+<li>EXAMPLE_ENUM3 = 2 --- A brief description of the third enum.</li>
+</ul>
+<p>If there are no enums, then display:</p>
+<p>There are no enumerated types for this class.</p>
+
 <h2 id="constants">Constants</h2>
 <p>A list of constants, alongside a brief description and their values in the following format:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Constant</th>
+<th align="center">Value</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">MAX_STALES</td>
+<td align="center">15</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">MIN_STALE_MODIFIER</td>
+<td align="center">"0.2"</td>
+<td align="center">N/A</td>
+</tr>
+</tbody>
+</table>
+<p>If there are no constants, then display:</p>
+<p>There are no constants for this class.</p>
+
 <h2 id="methods">Methods</h2>
 <p>A list of methods, alongside a brief description, the return type, arguments (with data types), in the following format:</p>
+<div class="spacer"></div>
+
+<p><code>exampleFunctionReturnsNull()</code></p>
+<p>A description of the function goes here. If you do not know how to describe the function, then display N/A.</p>
+<p>This function returns null; dont list return types in the description, this is just for clarification in the style guide.</p>
+
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>exampleFunctionReturnsInt(arg1)</code></p>
+<p>This is a function that returns an int.
+It also has an argument.</p>
+<p>returns <code>int</code></p>
+<div class="spacer"></div>
+
+<p><code>exampleFunctionReturnsDict(arg1:int,arg2="Default")</code></p>
+<p>This is a function that returns a dictionary value.
+It also has a type specified argument, and an argument with a default value.</p>
+<p>returns <code>dict</code></p>
+<div class="spacer"></div>
+
+<p>If there are no methods, then display:</p>
+<p>There are no methods for this class.</p>
+
 <h2 id="signals">Signals</h2>
 <p>A list of signals, alongside a brief description and the signal arguments in the following format:</p>
+<p><code>example_signal()</code></p>
+<p>A description of the signal goes here.</p>
+<p><code>example_signal_with_arguments(arg1, arg2, arg3)</code></p>
+<p>This signal emits several arguments.</p>
 <h2 id="source">Source</h2>
 <p>A fenced codeblock, under an admonition in the following format:</p>
+<details class="abstract">
+<summary>ExampleSource.gd</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Source</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="o">!</span><span class="w"></span>
+</code></pre></div>
+</details>
 
 
 
@@ -595,7 +695,7 @@ This page serves as both a template and as an example for how each type of docum
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide\\", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
