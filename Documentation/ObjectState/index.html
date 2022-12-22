@@ -1,0 +1,1441 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>ObjectState - YOMIDoku</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objectstate" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YOMIDoku" class="md-header__button md-logo" aria-label="YOMIDoku" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YOMIDoku
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ObjectState
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YOMIDoku" class="md-nav__button md-logo" aria-label="YOMIDoku" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    YOMIDoku
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BaseChar/" class="md-nav__link">
+        Fighter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DefaultFireball/" class="md-nav__link">
+        DefaultFireball
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BaseProjectile/" class="md-nav__link">
+        BaseProjectile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DirProjectileDefault/" class="md-nav__link">
+        DirProjectileDefault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ObjectState
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ObjectState
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    Enumerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    Source
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Miscellaneous
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Miscellaneous" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Miscellaneous
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Miscellaneous/StyleGuide/" class="md-nav__link">
+        Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    Enumerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    Source
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<style>
+.spacer {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+</style>
+<style>
+.nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+}
+</style>
+
+<h1 id="objectstate">ObjectState</h1>
+<p>In: res://ObjectState.gd</p>
+<p>Inherits: StateInterface &gt; ObjectState</p>
+<h2 id="description">Description</h2>
+<p>Base code for states. This applies to both player and projectile states.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Property</th>
+<th align="center">Default Value</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>apply_forces</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the state should calculate movement based on forces.</td>
+</tr>
+<tr>
+<td align="center"><code>apply_fric</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the state should account for friction when determining movement.</td>
+</tr>
+<tr>
+<td align="center"><code>apply_grav</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the state should account for gravity when determining movement.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>fallback_state</code></td>
+<td align="center">"Wait"</td>
+<td align="center">The state to move to automatically when this state ends.</td>
+</tr>
+<tr>
+<td align="center"><code>sprite_animation</code></td>
+<td align="center">""</td>
+<td align="center">The animation to play for this state.</td>
+</tr>
+<tr>
+<td align="center"><code>anim_length</code></td>
+<td align="center">1</td>
+<td align="center">How many ticks this state lasts.</td>
+</tr>
+<tr>
+<td align="center"><code>sprite_anim_length</code></td>
+<td align="center">-1</td>
+<td align="center">How many frames of the animation to use. (-1 defaults to the full animation)</td>
+</tr>
+<tr>
+<td align="center"><code>ticks_per_frame</code></td>
+<td align="center">1</td>
+<td align="center">How many ticks each frame of the animation should last.</td>
+</tr>
+<tr>
+<td align="center"><code>loop_animation</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the animation should loop, or freeze on the last frame.</td>
+</tr>
+<tr>
+<td align="center"><code>endless</code></td>
+<td align="center">false</td>
+<td align="center">If true, the object will not enter the fallback state once the animation ends.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>force_dir_x</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The x component of the timed force's direction.</td>
+</tr>
+<tr>
+<td align="center"><code>force_dir_y</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The y component of the timed force's direction.</td>
+</tr>
+<tr>
+<td align="center"><code>force_speed</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The magnitude of the timed force.</td>
+</tr>
+<tr>
+<td align="center"><code>force_tick</code></td>
+<td align="center">0</td>
+<td align="center">The tick on which the timed force is performed.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>enter_force_dir_x</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The x component of the entry force's direction.</td>
+</tr>
+<tr>
+<td align="center"><code>enter_force_dir_y</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The y component of the entry force's direction.</td>
+</tr>
+<tr>
+<td align="center"><code>enter_force_speed</code></td>
+<td align="center">"0.0"</td>
+<td align="center">The magnitude of the entryforce.</td>
+</tr>
+<tr>
+<td align="center"><code>reset_momentum</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the object's momentum is reset upon entering this state.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>particle_scene</code></td>
+<td align="center">null</td>
+<td align="center">A scene (ParticleEffect) to be spawned when entering the state.</td>
+</tr>
+<tr>
+<td align="center"><code>particle_position</code></td>
+<td align="center">Vector2()</td>
+<td align="center">The position at which to spawn <code>particle_scene</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>spawn_particle_on_enter</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the game should attempt to spawn <code>particle_scene</code> when entering the state.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>timed_particle_scene</code></td>
+<td align="center">null</td>
+<td align="center">A scene (intended to be ParticleEffect) to be spawned when entering the state.</td>
+</tr>
+<tr>
+<td align="center"><code>timed_particle_position</code></td>
+<td align="center">Vector2()</td>
+<td align="center">The position at which to spawn <code>timed_particle_scene</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>timed_spawn_particle_tick</code></td>
+<td align="center">1</td>
+<td align="center">The tick on which to spawn <code>timed_particle_scene</code>, if applicable.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>enter_sfx</code></td>
+<td align="center">null</td>
+<td align="center">AudioStream to play when entering the state.</td>
+</tr>
+<tr>
+<td align="center"><code>enter_sfx_volume</code></td>
+<td align="center">-15.0</td>
+<td align="center">Volume modifier for <code>enter_sfx</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>sfx</code></td>
+<td align="center">null</td>
+<td align="center">AudioStream to play during the state.</td>
+</tr>
+<tr>
+<td align="center"><code>sfx_tick</code></td>
+<td align="center">1</td>
+<td align="center">What tick to play <code>sfx</code> during.</td>
+</tr>
+<tr>
+<td align="center"><code>sfx_volume</code></td>
+<td align="center">-15.0</td>
+<td align="center">Volume modifier for <code>sfx</code>.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>projectile_scene</code></td>
+<td align="center">N/A</td>
+<td align="center">A scene (intended to be BaseProjectile) to be spawned during the state.</td>
+</tr>
+<tr>
+<td align="center"><code>projectile_tick</code></td>
+<td align="center">1</td>
+<td align="center">The tick on which to spawn <code>projectile_scene</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>projectile_pos_x</code></td>
+<td align="center">0</td>
+<td align="center">The horizontal offset of the projectile.</td>
+</tr>
+<tr>
+<td align="center"><code>projectile_pos_y</code></td>
+<td align="center">0</td>
+<td align="center">The vertical offset of the projectile.</td>
+</tr>
+<tr>
+<td align="center"><code>projectile_local_pos</code></td>
+<td align="center">true</td>
+<td align="center">Whether or not the projectile's spawn location is an absolute or relative position.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>throw_positions</code></td>
+<td align="center">{}</td>
+<td align="center">Dictionary containing position vectors. Can be set using the CharStateEditor; used for complex throw animations.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>enter_sfx_player</code></td>
+<td align="center">N/A</td>
+<td align="center">VariableSound2D for playing <code>enter_sfx</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>sfx_player</code></td>
+<td align="center">N/A</td>
+<td align="center">VariableSound2D for playing <code>sfx</code>.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>current_tick</code></td>
+<td align="center">-1</td>
+<td align="center">Current tick of the state, as used for animation purposes.</td>
+</tr>
+<tr>
+<td align="center"><code>current_real_tick</code></td>
+<td align="center">-1</td>
+<td align="center">Current tick of the state, ignoring animation looping.</td>
+</tr>
+<tr>
+<td align="center"><code>fixed</code></td>
+<td align="center">N/A</td>
+<td align="center">FixedMath for fixed-point calculations.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>anim_name</code></td>
+<td align="center">N/A</td>
+<td align="center">Name of the current animation.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>has_hitboxes</code></td>
+<td align="center">false</td>
+<td align="center">Whether or not the state has hitboxes.</td>
+</tr>
+<tr>
+<td align="center"><code>current_hurtbox</code></td>
+<td align="center">null</td>
+<td align="center">The user's current hurtbox.</td>
+</tr>
+<tr>
+<td align="center"><code>hitbox_start_frames</code></td>
+<td align="center">{}</td>
+<td align="center">Lists when the user's hitboxes activate, and which ones.</td>
+</tr>
+<tr>
+<td align="center"><code>hurtbox_state_change_frames</code></td>
+<td align="center">{}</td>
+<td align="center">Lists when the user's hurtbox changes, and to which ones.</td>
+</tr>
+<tr>
+<td align="center"><code>frame_methods</code></td>
+<td align="center">[]</td>
+<td align="center">List of frames with scripting tied to them.</td>
+</tr>
+<tr>
+<td align="center"><code>max_tick</code></td>
+<td align="center">-1</td>
+<td align="center">Tracks the highest tick the state has reached.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations</h2>
+<p>There are no enumerated types for this class.</p>
+
+<h2 id="constants">Constants</h2>
+<p>There are no constants for this class.</p>
+
+<h2 id="methods">Methods</h2>
+<div class="spacer"></div>
+
+<p><code>apply_enter_force()</code></p>
+<p>Applies a force based on the <code>enter_force</code> parameters.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_on_hit_something(obj, _hitbox)</code></p>
+<p>Called when a hitbox in this state collides with something.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>get_projectile_pos()</code></p>
+<p>Returns a Dictionary containing the projectile's starting position.</p>
+<p>returns <code>Dict</code></p>
+<div class="spacer"></div>
+
+<p><code>get_projectile_data()</code></p>
+<p>Returns <code>null</code> by default.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>process_projectile(_projectile)</code></p>
+<p>Does nothing by default.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>get_active_hitboxes()</code></p>
+<p>Returns all active hitboxes in the state.</p>
+<p>returns <code>array</code></p>
+<div class="spacer"></div>
+
+<p><code>_tick_before()</code></p>
+<p>Processing performed at the beginnnig of each tick. Does nothing by default.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>process_feint()</code></p>
+<p>Returns the fallback state by default.</p>
+<p>returns <code>string</code></p>
+<div class="spacer"></div>
+
+<p><code>_tick_shared()</code></p>
+<p>Shared per_tick processing for all states. Updates things such as hitboxes, hurtboxes, <code>current_tick</code> counters, and movement.
+Returns a string if the processing detects that the state needs to be updated; otherwise, returns nothing.</p>
+<p>returns <code>string, null</code></p>
+<div class="spacer"></div>
+
+<p><code>process_hitboxes()</code></p>
+<p>Activates and deactivates hitboxes based on the current tick.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>update_hurtbox()</code></p>
+<p>Updates the hurtbox based on any HurtboxState nodes available.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_tick_after()</code></p>
+<p>Processing performed at the end of each tick. Updates hitbox positions based on the object's location.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>copy_data()</code></p>
+<p>Creates a copy of the state's data and returns it.</p>
+<p>returns <code>data</code></p>
+<div class="spacer"></div>
+
+<p><code>copy_to(state:ObjectState)</code></p>
+<p>Copies the current state's properties to <code>state</code>'s properties.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>activate_hitbox(hitbox)</code></p>
+<p>Calls <code>hitbox.activate()</code>.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>terminate_hitboxes()</code></p>
+<p>Deactivates all hitboxes in the current state.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>deactivate_hitbox(hitbox)</code></p>
+<p>Does nothing by default.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>init()</code></p>
+<p>Performs initial setup for the state.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>setup_audio()</code></p>
+<p>Sets up required parameters for playing sound effects.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>setup_hitboxes()</code></p>
+<p>Sets up parameters for hitboxes.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>setup_hurtboxes()</code></p>
+<p>Sets up parameters for hurtboxes.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>__on_hit_something(obj, _hitbox)</code></p>
+<p>Called when detecting the signal <code>"hit_something"</code> from an attached hitbox. Calls <code>_on_hit_something()</code>.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>__on_got_parried()</code></p>
+<p>Called when detecting the signal <code>"got_parried"</code> from an attached hitbox. Calls <code>_got_parried()</code>.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_got_parried()</code></p>
+<p>Does nothing by default.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>spawn_particle_relative(scene:PackedScene, pos = Vector2(), dir = Vector2.RIGHT)</code></p>
+<p>Spawns a particle effect at the listed position and direction relative to the user.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_enter_shared()</code></p>
+<p>Shared processing upon entering the state.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_exit_shared()</code></p>
+<p>Shared processing upon exiting the state. Resets the current hurtbox.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>xy_to_dir(x, y, mul="1.0", div = "100.0")</code></p>
+<p>Passthrough function for converting an X and Y value to a movement vector, with optional modifiers for speed.
+Returns a Dictionary containing the results.</p>
+<p>returns <code>Dict</code></p>
+<div class="spacer"></div>
+
+<p><code>update_sprite_frame()</code></p>
+<p>Updates the currently displayed sprite frame to match the current tick.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<h2 id="signals">Signals</h2>
+<p><code>state_started()</code></p>
+<p>Emitted upon entering the state.</p>
+<p><code>state_ended()</code></p>
+<p>Emitted upon exiting the state.</p>
+<h2 id="source">Source</h2>
+<details class="abstract">
+<summary>ExampleSource.gd</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">extends</span><span class="w"> </span><span class="n">StateInterface</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class_name</span><span class="w"> </span><span class="n">ObjectState</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">signal</span><span class="w"> </span><span class="n">state_started</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">signal</span><span class="w"> </span><span class="n">state_ended</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Physics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">apply_forces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">apply_fric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">apply_grav</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Animation_and_Length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">fallback_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Wait&quot;</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">sprite_animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">anim_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">sprite_anim_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">ticks_per_frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">loop_animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">endless</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Static_Force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">force_dir_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">force_dir_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">force_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">force_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Enter_Static_Force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">enter_force_dir_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">enter_force_dir_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">enter_force_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="w"></span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">reset_momentum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">export</span><span class="w"> </span><span class="p">(</span><span class="n">PackedScene</span><span class="p">)</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">particle_scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">particle_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">spawn_particle_on_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_TimedParticles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="k">export</span><span class="w"> </span><span class="p">(</span><span class="n">PackedScene</span><span class="p">)</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">timed_particle_scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">timed_particle_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">timed_spawn_particle_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Sfx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="k">export</span><span class="w"> </span><span class="p">(</span><span class="n">AudioStream</span><span class="p">)</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">enter_sfx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">enter_sfx_volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">15.0</span><span class="w"></span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="k">export</span><span class="w"> </span><span class="p">(</span><span class="n">AudioStream</span><span class="p">)</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">sfx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">sfx_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">sfx_volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">15.0</span><span class="w"></span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Projectiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="k">export</span><span class="w"> </span><span class="p">(</span><span class="n">PackedScene</span><span class="p">)</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">projectile_scene</span><span class="w"></span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">projectile_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">projectile_pos_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">projectile_pos_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">projectile_local_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">_c_Auto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">throw_positions</span><span class="p">:</span><span class="nb nb-Type">Dictionary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="k">var</span><span class="w"> </span><span class="n">enter_sfx_player</span><span class="w"></span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="k">var</span><span class="w"> </span><span class="n">sfx_player</span><span class="w"></span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="k">var</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="k">var</span><span class="w"> </span><span class="n">current_real_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="k">var</span><span class="w"> </span><span class="n">fixed</span><span class="w"></span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="k">var</span><span class="w"> </span><span class="n">anim_name</span><span class="w"></span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="k">var</span><span class="w"> </span><span class="n">has_hitboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="k">var</span><span class="w"> </span><span class="n">current_hurtbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="k">var</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="k">var</span><span class="w"> </span><span class="n">hurtbox_state_change_frames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="k">var</span><span class="w"> </span><span class="n">frame_methods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="k">var</span><span class="w"> </span><span class="n">max_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="k">func</span><span class="w"> </span><span class="n">apply_enter_force</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">enter_force_speed</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xy_to_dir</span><span class="p">(</span><span class="n">enter_force_dir_x</span><span class="p">,</span><span class="w"> </span><span class="n">enter_force_dir_y</span><span class="p">,</span><span class="w"> </span><span class="n">enter_force_speed</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">apply_force_relative</span><span class="p">(</span><span class="n">force</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="k">func</span><span class="w"> </span><span class="n">_on_hit_something</span><span class="p">(</span><span class="n">_obj</span><span class="p">,</span><span class="w"> </span><span class="n">_hitbox</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">    </span><span class="k">pass</span><span class="w"></span>
+<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="k">func</span><span class="w"> </span><span class="n">get_projectile_pos</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">projectile_pos_x</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">projectile_pos_y</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="k">func</span><span class="w"> </span><span class="n">get_projectile_data</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="k">func</span><span class="w"> </span><span class="n">process_projectile</span><span class="p">(</span><span class="n">_projectile</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">    </span><span class="k">pass</span><span class="w"></span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="k">func</span><span class="w"> </span><span class="n">get_active_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">hitboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">start_frame</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="p">[</span><span class="n">start_frame</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">items</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Hitbox</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="w">                </span><span class="n">hitboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">hitboxes</span><span class="w"></span>
+<a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a>
+<a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a><span class="k">func</span><span class="w"> </span><span class="n">_tick_before</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a><span class="w">    </span><span class="k">pass</span><span class="w"></span>
+<a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a>
+<a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a><span class="k">func</span><span class="w"> </span><span class="n">process_feint</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fallback_state</span><span class="w"></span>
+<a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a>
+<a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a><span class="k">func</span><span class="w"> </span><span class="n">_tick_shared</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a>
+<a id="__codelineno-0-119" name="__codelineno-0-119" href="#__codelineno-0-119"></a>
+<a id="__codelineno-0-120" name="__codelineno-0-120" href="#__codelineno-0-120"></a>
+<a id="__codelineno-0-121" name="__codelineno-0-121" href="#__codelineno-0-121"></a>
+<a id="__codelineno-0-122" name="__codelineno-0-122" href="#__codelineno-0-122"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-123" name="__codelineno-0-123" href="#__codelineno-0-123"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">spawn_particle_on_enter</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">particle_scene</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-124" name="__codelineno-0-124" href="#__codelineno-0-124"></a><span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">particle_position</span><span class="w"></span>
+<a id="__codelineno-0-125" name="__codelineno-0-125" href="#__codelineno-0-125"></a><span class="w">            </span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_facing_int</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-126" name="__codelineno-0-126" href="#__codelineno-0-126"></a><span class="w">            </span><span class="n">spawn_particle_relative</span><span class="p">(</span><span class="n">particle_scene</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="o">.</span><span class="n">RIGHT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_facing_int</span><span class="p">())</span><span class="w"></span>
+<a id="__codelineno-0-127" name="__codelineno-0-127" href="#__codelineno-0-127"></a><span class="w">        </span><span class="n">apply_enter_force</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-128" name="__codelineno-0-128" href="#__codelineno-0-128"></a>
+<a id="__codelineno-0-129" name="__codelineno-0-129" href="#__codelineno-0-129"></a><span class="w">    </span><span class="n">current_real_tick</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-130" name="__codelineno-0-130" href="#__codelineno-0-130"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">anim_length</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">endless</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-131" name="__codelineno-0-131" href="#__codelineno-0-131"></a><span class="w">        </span><span class="n">current_tick</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-132" name="__codelineno-0-132" href="#__codelineno-0-132"></a>
+<a id="__codelineno-0-133" name="__codelineno-0-133" href="#__codelineno-0-133"></a><span class="w">        </span><span class="n">process_hitboxes</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-134" name="__codelineno-0-134" href="#__codelineno-0-134"></a>
+<a id="__codelineno-0-135" name="__codelineno-0-135" href="#__codelineno-0-135"></a><span class="w">        </span><span class="n">update_sprite_frame</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-136" name="__codelineno-0-136" href="#__codelineno-0-136"></a><span class="w">        </span><span class="n">update_hurtbox</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-137" name="__codelineno-0-137" href="#__codelineno-0-137"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sfx_tick</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sfx_player</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">ReplayManager</span><span class="o">.</span><span class="n">resimulating</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-138" name="__codelineno-0-138" href="#__codelineno-0-138"></a><span class="w">            </span><span class="n">sfx_player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-139" name="__codelineno-0-139" href="#__codelineno-0-139"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">force_tick</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-140" name="__codelineno-0-140" href="#__codelineno-0-140"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">force_speed</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">&quot;0.0&quot;</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-141" name="__codelineno-0-141" href="#__codelineno-0-141"></a><span class="w">                </span><span class="k">var</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xy_to_dir</span><span class="p">(</span><span class="n">force_dir_x</span><span class="p">,</span><span class="w"> </span><span class="n">force_dir_y</span><span class="p">,</span><span class="w"> </span><span class="n">force_speed</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-142" name="__codelineno-0-142" href="#__codelineno-0-142"></a>
+<a id="__codelineno-0-143" name="__codelineno-0-143" href="#__codelineno-0-143"></a><span class="w">                </span><span class="n">host</span><span class="o">.</span><span class="n">apply_force_relative</span><span class="p">(</span><span class="n">force</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-144" name="__codelineno-0-144" href="#__codelineno-0-144"></a>
+<a id="__codelineno-0-145" name="__codelineno-0-145" href="#__codelineno-0-145"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">projectile_tick</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-146" name="__codelineno-0-146" href="#__codelineno-0-146"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">projectile_scene</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-147" name="__codelineno-0-147" href="#__codelineno-0-147"></a><span class="w">                </span><span class="k">var</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_projectile_pos</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-148" name="__codelineno-0-148" href="#__codelineno-0-148"></a><span class="w">                </span><span class="k">var</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">spawn_object</span><span class="p">(</span><span class="n">projectile_scene</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">,</span><span class="w"> </span><span class="n">get_projectile_data</span><span class="p">(),</span><span class="w"> </span><span class="n">projectile_local_pos</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-149" name="__codelineno-0-149" href="#__codelineno-0-149"></a><span class="w">                </span><span class="n">process_projectile</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-150" name="__codelineno-0-150" href="#__codelineno-0-150"></a>
+<a id="__codelineno-0-151" name="__codelineno-0-151" href="#__codelineno-0-151"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">timed_spawn_particle_tick</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-152" name="__codelineno-0-152" href="#__codelineno-0-152"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">timed_particle_scene</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-153" name="__codelineno-0-153" href="#__codelineno-0-153"></a><span class="w">                </span><span class="k">var</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timed_particle_position</span><span class="w"></span>
+<a id="__codelineno-0-154" name="__codelineno-0-154" href="#__codelineno-0-154"></a><span class="w">                </span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_facing_int</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-155" name="__codelineno-0-155" href="#__codelineno-0-155"></a><span class="w">                </span><span class="n">spawn_particle_relative</span><span class="p">(</span><span class="n">timed_particle_scene</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="o">.</span><span class="n">RIGHT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_facing_int</span><span class="p">())</span><span class="w"></span>
+<a id="__codelineno-0-156" name="__codelineno-0-156" href="#__codelineno-0-156"></a>
+<a id="__codelineno-0-157" name="__codelineno-0-157" href="#__codelineno-0-157"></a><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">new_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-158" name="__codelineno-0-158" href="#__codelineno-0-158"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_tick</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-159" name="__codelineno-0-159" href="#__codelineno-0-159"></a><span class="w">            </span><span class="n">max_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_tick</span><span class="w"></span>
+<a id="__codelineno-0-160" name="__codelineno-0-160" href="#__codelineno-0-160"></a><span class="w">            </span><span class="n">new_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-161" name="__codelineno-0-161" href="#__codelineno-0-161"></a>
+<a id="__codelineno-0-162" name="__codelineno-0-162" href="#__codelineno-0-162"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">is_ghost</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">new_max</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">frame_methods</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-163" name="__codelineno-0-163" href="#__codelineno-0-163"></a><span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="n">method_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;_frame_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">current_tick</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-164" name="__codelineno-0-164" href="#__codelineno-0-164"></a>
+<a id="__codelineno-0-165" name="__codelineno-0-165" href="#__codelineno-0-165"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">has_method</span><span class="p">(</span><span class="n">method_name</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-166" name="__codelineno-0-166" href="#__codelineno-0-166"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="n">current_tick</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">frame_methods</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-167" name="__codelineno-0-167" href="#__codelineno-0-167"></a><span class="w">                    </span><span class="n">frame_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_tick</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-168" name="__codelineno-0-168" href="#__codelineno-0-168"></a><span class="w">                </span><span class="k">var</span><span class="w"> </span><span class="n">next_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">call</span><span class="p">(</span><span class="n">method_name</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-169" name="__codelineno-0-169" href="#__codelineno-0-169"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">next_state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-170" name="__codelineno-0-170" href="#__codelineno-0-170"></a><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">next_state</span><span class="w"></span>
+<a id="__codelineno-0-171" name="__codelineno-0-171" href="#__codelineno-0-171"></a><span class="w">            </span><span class="n">new_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w"></span>
+<a id="__codelineno-0-172" name="__codelineno-0-172" href="#__codelineno-0-172"></a>
+<a id="__codelineno-0-173" name="__codelineno-0-173" href="#__codelineno-0-173"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">apply_fric</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-174" name="__codelineno-0-174" href="#__codelineno-0-174"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">apply_fric</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-175" name="__codelineno-0-175" href="#__codelineno-0-175"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">apply_grav</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-176" name="__codelineno-0-176" href="#__codelineno-0-176"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">apply_grav</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-177" name="__codelineno-0-177" href="#__codelineno-0-177"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">apply_forces</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-178" name="__codelineno-0-178" href="#__codelineno-0-178"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">apply_forces</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-179" name="__codelineno-0-179" href="#__codelineno-0-179"></a>
+<a id="__codelineno-0-180" name="__codelineno-0-180" href="#__codelineno-0-180"></a><span class="k">func</span><span class="w"> </span><span class="n">process_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-181" name="__codelineno-0-181" href="#__codelineno-0-181"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">current_tick</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-182" name="__codelineno-0-182" href="#__codelineno-0-182"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="p">[</span><span class="n">current_tick</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]:</span><span class="w"></span>
+<a id="__codelineno-0-183" name="__codelineno-0-183" href="#__codelineno-0-183"></a><span class="w">            </span><span class="n">activate_hitbox</span><span class="p">(</span><span class="n">hitbox</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-184" name="__codelineno-0-184" href="#__codelineno-0-184"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_active_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-185" name="__codelineno-0-185" href="#__codelineno-0-185"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">facing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_facing</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-186" name="__codelineno-0-186" href="#__codelineno-0-186"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">hitbox</span><span class="o">.</span><span class="n">active</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-187" name="__codelineno-0-187" href="#__codelineno-0-187"></a><span class="w">            </span><span class="n">hitbox</span><span class="o">.</span><span class="n">tick</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-188" name="__codelineno-0-188" href="#__codelineno-0-188"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-189" name="__codelineno-0-189" href="#__codelineno-0-189"></a><span class="w">            </span><span class="n">deactivate_hitbox</span><span class="p">(</span><span class="n">hitbox</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-190" name="__codelineno-0-190" href="#__codelineno-0-190"></a>
+<a id="__codelineno-0-191" name="__codelineno-0-191" href="#__codelineno-0-191"></a>
+<a id="__codelineno-0-192" name="__codelineno-0-192" href="#__codelineno-0-192"></a><span class="k">func</span><span class="w"> </span><span class="n">update_hurtbox</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-193" name="__codelineno-0-193" href="#__codelineno-0-193"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">current_hurtbox</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-194" name="__codelineno-0-194" href="#__codelineno-0-194"></a><span class="w">        </span><span class="n">current_hurtbox</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-195" name="__codelineno-0-195" href="#__codelineno-0-195"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hurtbox_state_change_frames</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-196" name="__codelineno-0-196" href="#__codelineno-0-196"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">current_hurtbox</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-197" name="__codelineno-0-197" href="#__codelineno-0-197"></a><span class="w">            </span><span class="n">current_hurtbox</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-198" name="__codelineno-0-198" href="#__codelineno-0-198"></a><span class="w">        </span><span class="n">current_hurtbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hurtbox_state_change_frames</span><span class="p">[</span><span class="n">current_tick</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-199" name="__codelineno-0-199" href="#__codelineno-0-199"></a><span class="w">        </span><span class="n">current_hurtbox</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-200" name="__codelineno-0-200" href="#__codelineno-0-200"></a>
+<a id="__codelineno-0-201" name="__codelineno-0-201" href="#__codelineno-0-201"></a><span class="k">func</span><span class="w"> </span><span class="n">_tick_after</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-202" name="__codelineno-0-202" href="#__codelineno-0-202"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_active_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-203" name="__codelineno-0-203" href="#__codelineno-0-203"></a><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-204" name="__codelineno-0-204" href="#__codelineno-0-204"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">update_position</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-205" name="__codelineno-0-205" href="#__codelineno-0-205"></a>
+<a id="__codelineno-0-206" name="__codelineno-0-206" href="#__codelineno-0-206"></a><span class="k">func</span><span class="w"> </span><span class="n">copy_data</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-207" name="__codelineno-0-207" href="#__codelineno-0-207"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"></span>
+<a id="__codelineno-0-208" name="__codelineno-0-208" href="#__codelineno-0-208"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">data</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-209" name="__codelineno-0-209" href="#__codelineno-0-209"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nb nb-Type">Dictionary</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nb nb-Type">Array</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-210" name="__codelineno-0-210" href="#__codelineno-0-210"></a><span class="w">            </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-211" name="__codelineno-0-211" href="#__codelineno-0-211"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-212" name="__codelineno-0-212" href="#__codelineno-0-212"></a><span class="w">            </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="w"></span>
+<a id="__codelineno-0-213" name="__codelineno-0-213" href="#__codelineno-0-213"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="w"></span>
+<a id="__codelineno-0-214" name="__codelineno-0-214" href="#__codelineno-0-214"></a>
+<a id="__codelineno-0-215" name="__codelineno-0-215" href="#__codelineno-0-215"></a><span class="k">func</span><span class="w"> </span><span class="n">copy_to</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="n">ObjectState</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-216" name="__codelineno-0-216" href="#__codelineno-0-216"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_script</span><span class="p">()</span><span class="o">.</span><span class="n">get_script_property_list</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-217" name="__codelineno-0-217" href="#__codelineno-0-217"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">properties</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-218" name="__codelineno-0-218" href="#__codelineno-0-218"></a><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-219" name="__codelineno-0-219" href="#__codelineno-0-219"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nb nb-Type">Object</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nb nb-Type">Array</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nb nb-Type">Dictionary</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-220" name="__codelineno-0-220" href="#__codelineno-0-220"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-221" name="__codelineno-0-221" href="#__codelineno-0-221"></a><span class="w">                </span><span class="n">state</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-222" name="__codelineno-0-222" href="#__codelineno-0-222"></a><span class="w">    </span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copy_data</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-223" name="__codelineno-0-223" href="#__codelineno-0-223"></a><span class="w">    </span><span class="n">state</span><span class="o">.</span><span class="n">current_real_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_real_tick</span><span class="w"></span>
+<a id="__codelineno-0-224" name="__codelineno-0-224" href="#__codelineno-0-224"></a><span class="w">    </span><span class="n">state</span><span class="o">.</span><span class="n">current_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_real_tick</span><span class="w"></span>
+<a id="__codelineno-0-225" name="__codelineno-0-225" href="#__codelineno-0-225"></a>
+<a id="__codelineno-0-226" name="__codelineno-0-226" href="#__codelineno-0-226"></a><span class="k">func</span><span class="w"> </span><span class="n">activate_hitbox</span><span class="p">(</span><span class="n">hitbox</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-227" name="__codelineno-0-227" href="#__codelineno-0-227"></a><span class="w">    </span><span class="n">hitbox</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-228" name="__codelineno-0-228" href="#__codelineno-0-228"></a>
+<a id="__codelineno-0-229" name="__codelineno-0-229" href="#__codelineno-0-229"></a><span class="k">func</span><span class="w"> </span><span class="n">terminate_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-230" name="__codelineno-0-230" href="#__codelineno-0-230"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_active_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-231" name="__codelineno-0-231" href="#__codelineno-0-231"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-232" name="__codelineno-0-232" href="#__codelineno-0-232"></a>
+<a id="__codelineno-0-233" name="__codelineno-0-233" href="#__codelineno-0-233"></a><span class="k">func</span><span class="w"> </span><span class="n">deactivate_hitbox</span><span class="p">(</span><span class="n">hitbox</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-234" name="__codelineno-0-234" href="#__codelineno-0-234"></a>
+<a id="__codelineno-0-235" name="__codelineno-0-235" href="#__codelineno-0-235"></a><span class="w">    </span><span class="k">pass</span><span class="w"></span>
+<a id="__codelineno-0-236" name="__codelineno-0-236" href="#__codelineno-0-236"></a>
+<a id="__codelineno-0-237" name="__codelineno-0-237" href="#__codelineno-0-237"></a><span class="k">func</span><span class="w"> </span><span class="n">init</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-238" name="__codelineno-0-238" href="#__codelineno-0-238"></a><span class="w">    </span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;state_started&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;on_state_started&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="bp">self</span><span class="p">])</span><span class="w"></span>
+<a id="__codelineno-0-239" name="__codelineno-0-239" href="#__codelineno-0-239"></a><span class="w">    </span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;state_ended&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;on_state_ended&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="bp">self</span><span class="p">])</span><span class="w"></span>
+<a id="__codelineno-0-240" name="__codelineno-0-240" href="#__codelineno-0-240"></a><span class="w">    </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">fixed</span><span class="w"></span>
+<a id="__codelineno-0-241" name="__codelineno-0-241" href="#__codelineno-0-241"></a><span class="w">    </span><span class="n">anim_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sprite_animation</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">sprite_animation</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">state_name</span><span class="w"></span>
+<a id="__codelineno-0-242" name="__codelineno-0-242" href="#__codelineno-0-242"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">sprite_anim_length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-243" name="__codelineno-0-243" href="#__codelineno-0-243"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">frames</span><span class="o">.</span><span class="n">has_animation</span><span class="p">(</span><span class="n">anim_name</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-244" name="__codelineno-0-244" href="#__codelineno-0-244"></a><span class="w">            </span><span class="n">sprite_anim_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">frames</span><span class="o">.</span><span class="n">get_frame_count</span><span class="p">(</span><span class="n">anim_name</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-245" name="__codelineno-0-245" href="#__codelineno-0-245"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-246" name="__codelineno-0-246" href="#__codelineno-0-246"></a><span class="w">            </span><span class="n">sprite_anim_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">anim_length</span><span class="w"></span>
+<a id="__codelineno-0-247" name="__codelineno-0-247" href="#__codelineno-0-247"></a><span class="w">    </span><span class="n">setup_hitboxes</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-248" name="__codelineno-0-248" href="#__codelineno-0-248"></a><span class="w">    </span><span class="n">setup_hurtboxes</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-249" name="__codelineno-0-249" href="#__codelineno-0-249"></a><span class="w">    </span><span class="n">call_deferred</span><span class="p">(</span><span class="s2">&quot;setup_audio&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-250" name="__codelineno-0-250" href="#__codelineno-0-250"></a>
+<a id="__codelineno-0-251" name="__codelineno-0-251" href="#__codelineno-0-251"></a><span class="k">func</span><span class="w"> </span><span class="n">setup_audio</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-252" name="__codelineno-0-252" href="#__codelineno-0-252"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">enter_sfx</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-253" name="__codelineno-0-253" href="#__codelineno-0-253"></a><span class="w">        </span><span class="n">enter_sfx_player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VariableSound2D</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-254" name="__codelineno-0-254" href="#__codelineno-0-254"></a><span class="w">        </span><span class="n">add_child</span><span class="p">(</span><span class="n">enter_sfx_player</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-255" name="__codelineno-0-255" href="#__codelineno-0-255"></a><span class="w">        </span><span class="n">enter_sfx_player</span><span class="o">.</span><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Fx&quot;</span><span class="w"></span>
+<a id="__codelineno-0-256" name="__codelineno-0-256" href="#__codelineno-0-256"></a><span class="w">        </span><span class="n">enter_sfx_player</span><span class="o">.</span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enter_sfx</span><span class="w"></span>
+<a id="__codelineno-0-257" name="__codelineno-0-257" href="#__codelineno-0-257"></a><span class="w">        </span><span class="n">enter_sfx_player</span><span class="o">.</span><span class="n">volume_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enter_sfx_volume</span><span class="w"></span>
+<a id="__codelineno-0-258" name="__codelineno-0-258" href="#__codelineno-0-258"></a>
+<a id="__codelineno-0-259" name="__codelineno-0-259" href="#__codelineno-0-259"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">sfx</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-260" name="__codelineno-0-260" href="#__codelineno-0-260"></a><span class="w">        </span><span class="n">sfx_player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VariableSound2D</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-261" name="__codelineno-0-261" href="#__codelineno-0-261"></a><span class="w">        </span><span class="n">add_child</span><span class="p">(</span><span class="n">sfx_player</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-262" name="__codelineno-0-262" href="#__codelineno-0-262"></a><span class="w">        </span><span class="n">sfx_player</span><span class="o">.</span><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Fx&quot;</span><span class="w"></span>
+<a id="__codelineno-0-263" name="__codelineno-0-263" href="#__codelineno-0-263"></a><span class="w">        </span><span class="n">sfx_player</span><span class="o">.</span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sfx</span><span class="w"></span>
+<a id="__codelineno-0-264" name="__codelineno-0-264" href="#__codelineno-0-264"></a><span class="w">        </span><span class="n">sfx_player</span><span class="o">.</span><span class="n">volume_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sfx_volume</span><span class="w"></span>
+<a id="__codelineno-0-265" name="__codelineno-0-265" href="#__codelineno-0-265"></a>
+<a id="__codelineno-0-266" name="__codelineno-0-266" href="#__codelineno-0-266"></a><span class="k">func</span><span class="w"> </span><span class="n">setup_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-267" name="__codelineno-0-267" href="#__codelineno-0-267"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">hitboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-0-268" name="__codelineno-0-268" href="#__codelineno-0-268"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_children</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-269" name="__codelineno-0-269" href="#__codelineno-0-269"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Hitbox</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-270" name="__codelineno-0-270" href="#__codelineno-0-270"></a><span class="w">            </span><span class="n">hitboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-271" name="__codelineno-0-271" href="#__codelineno-0-271"></a><span class="w">            </span><span class="n">host</span><span class="o">.</span><span class="n">hitboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-272" name="__codelineno-0-272" href="#__codelineno-0-272"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hitboxes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-273" name="__codelineno-0-273" href="#__codelineno-0-273"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">init</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-274" name="__codelineno-0-274" href="#__codelineno-0-274"></a><span class="w">        </span><span class="n">has_hitboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-275" name="__codelineno-0-275" href="#__codelineno-0-275"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="w"></span>
+<a id="__codelineno-0-276" name="__codelineno-0-276" href="#__codelineno-0-276"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">hitbox</span><span class="o">.</span><span class="n">start_tick</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-277" name="__codelineno-0-277" href="#__codelineno-0-277"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">hitbox_start_frames</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">hitbox</span><span class="o">.</span><span class="n">start_tick</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-278" name="__codelineno-0-278" href="#__codelineno-0-278"></a><span class="w">                </span><span class="n">hitbox_start_frames</span><span class="p">[</span><span class="n">hitbox</span><span class="o">.</span><span class="n">start_tick</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hitbox</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-279" name="__codelineno-0-279" href="#__codelineno-0-279"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-280" name="__codelineno-0-280" href="#__codelineno-0-280"></a><span class="w">                </span><span class="n">hitbox_start_frames</span><span class="p">[</span><span class="n">hitbox</span><span class="o">.</span><span class="n">start_tick</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">hitbox</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-281" name="__codelineno-0-281" href="#__codelineno-0-281"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;hit_something&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;__on_hit_something&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-282" name="__codelineno-0-282" href="#__codelineno-0-282"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;got_parried&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;__on_got_parried&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-283" name="__codelineno-0-283" href="#__codelineno-0-283"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox2</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hitboxes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-284" name="__codelineno-0-284" href="#__codelineno-0-284"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">hitbox2</span><span class="o">.</span><span class="n">group</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hitbox</span><span class="o">.</span><span class="n">group</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-285" name="__codelineno-0-285" href="#__codelineno-0-285"></a><span class="w">                </span><span class="n">hitbox</span><span class="o">.</span><span class="n">grouped_hitboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hitbox2</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-286" name="__codelineno-0-286" href="#__codelineno-0-286"></a>
+<a id="__codelineno-0-287" name="__codelineno-0-287" href="#__codelineno-0-287"></a><span class="k">func</span><span class="w"> </span><span class="n">setup_hurtboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-288" name="__codelineno-0-288" href="#__codelineno-0-288"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_children</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-289" name="__codelineno-0-289" href="#__codelineno-0-289"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">HurtboxState</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-290" name="__codelineno-0-290" href="#__codelineno-0-290"></a><span class="w">            </span><span class="n">hurtbox_state_change_frames</span><span class="p">[</span><span class="n">child</span><span class="o">.</span><span class="n">start_tick</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="w"></span>
+<a id="__codelineno-0-291" name="__codelineno-0-291" href="#__codelineno-0-291"></a>
+<a id="__codelineno-0-292" name="__codelineno-0-292" href="#__codelineno-0-292"></a>
+<a id="__codelineno-0-293" name="__codelineno-0-293" href="#__codelineno-0-293"></a><span class="k">func</span><span class="w"> </span><span class="n">__on_hit_something</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">hitbox</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-294" name="__codelineno-0-294" href="#__codelineno-0-294"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">active</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-295" name="__codelineno-0-295" href="#__codelineno-0-295"></a><span class="w">        </span><span class="n">_on_hit_something</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">hitbox</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-296" name="__codelineno-0-296" href="#__codelineno-0-296"></a>
+<a id="__codelineno-0-297" name="__codelineno-0-297" href="#__codelineno-0-297"></a><span class="k">func</span><span class="w"> </span><span class="n">__on_got_parried</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-298" name="__codelineno-0-298" href="#__codelineno-0-298"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">active</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-299" name="__codelineno-0-299" href="#__codelineno-0-299"></a><span class="w">        </span><span class="n">_got_parried</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-300" name="__codelineno-0-300" href="#__codelineno-0-300"></a>
+<a id="__codelineno-0-301" name="__codelineno-0-301" href="#__codelineno-0-301"></a><span class="k">func</span><span class="w"> </span><span class="n">_got_parried</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-302" name="__codelineno-0-302" href="#__codelineno-0-302"></a><span class="w">    </span><span class="k">pass</span><span class="w"></span>
+<a id="__codelineno-0-303" name="__codelineno-0-303" href="#__codelineno-0-303"></a>
+<a id="__codelineno-0-304" name="__codelineno-0-304" href="#__codelineno-0-304"></a><span class="k">func</span><span class="w"> </span><span class="n">spawn_particle_relative</span><span class="p">(</span><span class="n">scene</span><span class="p">:</span><span class="n">PackedScene</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="p">(),</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-305" name="__codelineno-0-305" href="#__codelineno-0-305"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">get_pos_visual</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-306" name="__codelineno-0-306" href="#__codelineno-0-306"></a><span class="w">    </span><span class="n">host</span><span class="o">.</span><span class="n">spawn_particle_effect</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-307" name="__codelineno-0-307" href="#__codelineno-0-307"></a>
+<a id="__codelineno-0-308" name="__codelineno-0-308" href="#__codelineno-0-308"></a><span class="k">func</span><span class="w"> </span><span class="n">_enter_shared</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-309" name="__codelineno-0-309" href="#__codelineno-0-309"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">reset_momentum</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-310" name="__codelineno-0-310" href="#__codelineno-0-310"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">reset_momentum</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-311" name="__codelineno-0-311" href="#__codelineno-0-311"></a><span class="w">    </span><span class="n">current_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-312" name="__codelineno-0-312" href="#__codelineno-0-312"></a><span class="w">    </span><span class="n">current_real_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-0-313" name="__codelineno-0-313" href="#__codelineno-0-313"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">enter_sfx_player</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">ReplayManager</span><span class="o">.</span><span class="n">resimulating</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-314" name="__codelineno-0-314" href="#__codelineno-0-314"></a><span class="w">        </span><span class="n">enter_sfx_player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-315" name="__codelineno-0-315" href="#__codelineno-0-315"></a><span class="w">    </span><span class="n">emit_signal</span><span class="p">(</span><span class="s2">&quot;state_started&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-316" name="__codelineno-0-316" href="#__codelineno-0-316"></a>
+<a id="__codelineno-0-317" name="__codelineno-0-317" href="#__codelineno-0-317"></a><span class="k">func</span><span class="w"> </span><span class="n">_exit_shared</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-318" name="__codelineno-0-318" href="#__codelineno-0-318"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">current_hurtbox</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-319" name="__codelineno-0-319" href="#__codelineno-0-319"></a><span class="w">        </span><span class="n">current_hurtbox</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-320" name="__codelineno-0-320" href="#__codelineno-0-320"></a><span class="w">    </span><span class="n">host</span><span class="o">.</span><span class="n">reset_hurtbox</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-321" name="__codelineno-0-321" href="#__codelineno-0-321"></a>
+<a id="__codelineno-0-322" name="__codelineno-0-322" href="#__codelineno-0-322"></a><span class="k">func</span><span class="w"> </span><span class="n">xy_to_dir</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;100.0&quot;</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-323" name="__codelineno-0-323" href="#__codelineno-0-323"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">xy_to_dir</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">mul</span><span class="p">,</span><span class="w"> </span><span class="n">div</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-324" name="__codelineno-0-324" href="#__codelineno-0-324"></a>
+<a id="__codelineno-0-325" name="__codelineno-0-325" href="#__codelineno-0-325"></a><span class="k">func</span><span class="w"> </span><span class="n">update_sprite_frame</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-326" name="__codelineno-0-326" href="#__codelineno-0-326"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">ReplayManager</span><span class="o">.</span><span class="n">resimulating</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-327" name="__codelineno-0-327" href="#__codelineno-0-327"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span>
+<a id="__codelineno-0-328" name="__codelineno-0-328" href="#__codelineno-0-328"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">frames</span><span class="o">.</span><span class="n">has_animation</span><span class="p">(</span><span class="n">anim_name</span><span class="p">):</span><span class="w"></span>
+<a id="__codelineno-0-329" name="__codelineno-0-329" href="#__codelineno-0-329"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span>
+<a id="__codelineno-0-330" name="__codelineno-0-330" href="#__codelineno-0-330"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">animation</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">anim_name</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-331" name="__codelineno-0-331" href="#__codelineno-0-331"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">anim_name</span><span class="w"></span>
+<a id="__codelineno-0-332" name="__codelineno-0-332" href="#__codelineno-0-332"></a><span class="w">        </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-0-333" name="__codelineno-0-333" href="#__codelineno-0-333"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">sprite_tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_tick</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ticks_per_frame</span><span class="w"></span>
+<a id="__codelineno-0-334" name="__codelineno-0-334" href="#__codelineno-0-334"></a>
+<a id="__codelineno-0-335" name="__codelineno-0-335" href="#__codelineno-0-335"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sprite_tick</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">sprite_anim_length</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">loop_animation</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">Utils</span><span class="o">.</span><span class="n">int_min</span><span class="p">(</span><span class="n">sprite_tick</span><span class="p">,</span><span class="w"> </span><span class="n">sprite_anim_length</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-336" name="__codelineno-0-336" href="#__codelineno-0-336"></a><span class="w">    </span><span class="n">host</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="w"></span>
+</code></pre></div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../DirProjectileDefault/" class="md-footer__link md-footer__link--prev" aria-label="Previous: DirProjectileDefault" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              DirProjectileDefault
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Miscellaneous/StyleGuide/" class="md-footer__link md-footer__link--next" aria-label="Next: Style Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Style Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide\\", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

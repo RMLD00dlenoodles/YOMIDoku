@@ -13,7 +13,7 @@
     
     
       
-        <title>Style Guide - YOMIDoku</title>
+        <title>BaseProjectile - YOMIDoku</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#preface" class="md-skip">
+        <a href="#baseprojectile" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Style Guide
+              BaseProjectile
             
           </span>
         </div>
@@ -209,12 +209,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -237,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Documentation/BaseChar/" class="md-nav__link">
+      <a href="../BaseChar/" class="md-nav__link">
         Fighter
       </a>
     </li>
@@ -251,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Documentation/DefaultFireball/" class="md-nav__link">
+      <a href="../DefaultFireball/" class="md-nav__link">
         DefaultFireball
       </a>
     </li>
@@ -263,11 +265,94 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Documentation/BaseProjectile/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BaseProjectile
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         BaseProjectile
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    Enumerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    Source
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -279,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Documentation/DirProjectileDefault/" class="md-nav__link">
+      <a href="../DirProjectileDefault/" class="md-nav__link">
         DirProjectileDefault
       </a>
     </li>
@@ -293,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Documentation/ObjectState/" class="md-nav__link">
+      <a href="../ObjectState/" class="md-nav__link">
         ObjectState
       </a>
     </li>
@@ -313,14 +398,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -341,110 +424,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Style Guide
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Miscellaneous/StyleGuide/" class="md-nav__link">
         Style Guide
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preface" class="md-nav__link">
-    Preface
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classes-gdscript-files" class="md-nav__link">
-    Classes / GDscript Files
-  </a>
-  
-    <nav class="md-nav" aria-label="Classes / GDscript Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enumerations" class="md-nav__link">
-    Enumerations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constants" class="md-nav__link">
-    Constants
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
-    Methods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signals" class="md-nav__link">
-    Signals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -473,6 +457,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -481,71 +467,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preface" class="md-nav__link">
-    Preface
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classes-gdscript-files" class="md-nav__link">
-    Classes / GDscript Files
-  </a>
-  
-    <nav class="md-nav" aria-label="Classes / GDscript Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#description" class="md-nav__link">
     Description
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#enumerations" class="md-nav__link">
     Enumerations
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#constants" class="md-nav__link">
     Constants
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
     Methods
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#signals" class="md-nav__link">
     Signals
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#source" class="md-nav__link">
     Source
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -577,18 +543,12 @@
 }
 </style>
 
-<h2 id="preface">Preface</h2>
-<div class="spacer">
-This page serves as both a template and as an example for how each type of document on YOMIDoku is structured.
-</div>
-
-<h1 id="classes-gdscript-files">Classes / GDscript Files</h1>
-<p>In: res://(Filepath)</p>
-<p>Inherits: (Inheritance Chain)</p>
+<h1 id="baseprojectile">BaseProjectile</h1>
+<p>In: res://projectile/BaseProjectile.gd</p>
+<p>Inherits: BaseObj &gt; BaseProjectile</p>
 <h2 id="description">Description</h2>
-<p>A brief description of the class / GDscript file.</p>
+<p>Base class used for projectiles. This file mostly defines properties to be used by projectile state scripts, such as DefaultFireball.</p>
 <h2 id="properties">Properties</h2>
-<p>Each publicly accessible variable, alongside a brief description, data type, and initial value if applicable, in the following format:</p>
 <table>
 <thead>
 <tr>
@@ -599,107 +559,50 @@ This page serves as both a template and as an example for how each type of docum
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>EXAMPLE_PROPERTY</code></td>
-<td align="center">123</td>
-<td align="center">A property, with a default value.</td>
-</tr>
-<tr>
-<td align="center"><code>EXAMPLE_PROPERTY_TEXT</code></td>
-<td align="center">"Example text!"</td>
-<td align="center">A property with a string.</td>
-</tr>
-<tr>
-<td align="center"><code>EXAMPLE_PROPERTY_DICT</code></td>
-<td align="center">{Key1: "Value",Key2: 123}</td>
-<td align="center">A property with a dictionary.</td>
-</tr>
-<tr>
-<td align="center"><code>EXAMPLE_PROPERTY_UNINIT</code></td>
+<td align="center"><code>immunity_susceptible</code></td>
+<td align="center">true</td>
 <td align="center">N/A</td>
-<td align="center">A property, without a default value.</td>
+</tr>
+<tr>
+<td align="center"><code>deletes_other_projectiles</code></td>
+<td align="center">true</td>
+<td align="center">Whether or not the projectile deletes other projectiles that collide with it.</td>
 </tr>
 </tbody>
 </table>
-<p>If there are no publicly accessible variables, then display:</p>
-<p>There are no properties for this class.</p>
-
 <h2 id="enumerations">Enumerations</h2>
-<p>A list of each enumerated type, alongside a brief description in the following format:</p>
-<p>enum Example</p>
-<ul>
-<li>EXAMPLE_ENUM1 = 0 --- A brief description of the first enum.</li>
-<li>EXAMPLE_ENUM2 = 1 --- A brief description of the second enum.</li>
-<li>EXAMPLE_ENUM3 = 2 --- A brief description of the third enum.</li>
-</ul>
-<p>If there are no enums, then display:</p>
 <p>There are no enumerated types for this class.</p>
 
 <h2 id="constants">Constants</h2>
-<p>A list of constants, alongside a brief description and their values in the following format:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Constant</th>
-<th align="center">Value</th>
-<th align="center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">MAX_STALES</td>
-<td align="center">15</td>
-<td align="center">N/A</td>
-</tr>
-<tr>
-<td align="center">MIN_STALE_MODIFIER</td>
-<td align="center">"0.2"</td>
-<td align="center">N/A</td>
-</tr>
-</tbody>
-</table>
-<p>If there are no constants, then display:</p>
 <p>There are no constants for this class.</p>
 
 <h2 id="methods">Methods</h2>
-<p>A list of methods, alongside a brief description, the return type, arguments (with data types), in the following format:</p>
 <div class="spacer"></div>
 
-<p><code>exampleFunctionReturnsNull()</code></p>
-<p>A description of the function goes here. If you do not know how to describe the function, then display N/A.</p>
-<p>This function returns null; dont list return types in the description, this is just for clarification in the style guide.</p>
-
+<p><code>disable()</code></p>
+<p>Removes the projectile from play. Note that this doesn't actually delete the projectile, but disables the sprite, hitboxes, and particles, rendering the projectile invisible and unable to interact with other objects.</p>
 <p>returns <code>null</code></p>
 <div class="spacer"></div>
 
-<p><code>exampleFunctionReturnsInt(arg1)</code></p>
-<p>This is a function that returns an int.
-It also has an argument.</p>
-<p>returns <code>int</code></p>
-<div class="spacer"></div>
-
-<p><code>exampleFunctionReturnsDict(arg1:int,arg2="Default")</code></p>
-<p>This is a function that returns a dictionary value.
-It also has a type specified argument, and an argument with a default value.</p>
-<p>returns <code>dict</code></p>
-<div class="spacer"></div>
-
-<p>If there are no methods, then display:</p>
-<p>There are no methods for this class.</p>
-
 <h2 id="signals">Signals</h2>
-<p>A list of signals, alongside a brief description and the signal arguments in the following format:</p>
-<p><code>example_signal()</code></p>
-<p>A description of the signal goes here.</p>
-<p><code>example_signal_with_arguments(arg1, arg2, arg3)</code></p>
-<p>This signal emits several arguments.</p>
-<p>If there are no signals, then display:</p>
 <p>There are no signals for this class.</p>
 
 <h2 id="source">Source</h2>
-<p>A fenced codeblock, under an admonition in the following format:</p>
 <details class="abstract">
-<summary>ExampleSource.gd</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Source</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="o">!</span><span class="w"></span>
+<summary>BaseProjectile.gd</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">extends</span><span class="w"> </span><span class="n">BaseObj</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class_name</span><span class="w"> </span><span class="n">BaseProjectile</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">immunity_susceptible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">export</span><span class="w">  </span><span class="k">var</span><span class="w"> </span><span class="n">deletes_other_projectiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">func</span><span class="w"> </span><span class="n">disable</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">sprite</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_active_hitboxes</span><span class="p">():</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">hitbox</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">stop_particles</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 </details>
 
@@ -722,7 +625,7 @@ It also has a type specified argument, and an argument with a default value.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../Documentation/ObjectState/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ObjectState" rel="prev">
+        <a href="../DefaultFireball/" class="md-footer__link md-footer__link--prev" aria-label="Previous: DefaultFireball" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -731,11 +634,26 @@ It also has a type specified argument, and an argument with a default value.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              ObjectState
+              DefaultFireball
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../DirProjectileDefault/" class="md-footer__link md-footer__link--next" aria-label="Next: DirProjectileDefault" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              DirProjectileDefault
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
