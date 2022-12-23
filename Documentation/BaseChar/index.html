@@ -611,6 +611,556 @@ Contains properties that determine character metadata and variables that are use
 <td align="center">1000</td>
 <td align="center">The health of your fighter.</td>
 </tr>
+<tr>
+<td align="center"><p class="nowrap"><code>num_air_movements</code></p></td>
+<td align="center">2</td>
+<td align="center">The amount of air options your fighter has.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>character_portrait</code></p></td>
+<td align="center">N/A</td>
+<td align="center">The portrait that will show in character select.</td>
+</tr>
+<tr>
+<td align="center"><code>you_label</code></td>
+<td align="center">$you_label</td>
+<td align="center">The label that shows over your character when you control them.</td>
+</tr>
+<tr>
+<td align="center"><code>actionable_label</code></td>
+<td align="center">1000</td>
+<td align="center">The label that shows over your prediction ghost on the frame you will be active.</td>
+</tr>
+<tr>
+<td align="center"><code>quitter_label</code></td>
+<td align="center">$"%QuitterLabel"</td>
+<td align="center">The label that shows over your character after you leave, briefly before you blow up. Shame on you.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>input_state</code></td>
+<td align="center">InputState.new()</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>color</code></td>
+<td align="center">Color.white</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>player_info_scene</code></p></td>
+<td align="center">N/A</td>
+<td align="center">The playerinfo scene your character uses.</td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>player_extra_params_scene</code></p></td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>damage_taken_modifier</code></p></td>
+<td align="center">"1.0"</td>
+<td align="center">Multiplier for this fighter's damage taken.</td>
+</tr>
+<tr>
+<td align="center"><code>num_feints</code></td>
+<td align="center">2</td>
+<td align="center">Presumably the number of free cancels the player can make from neutral.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>opponent</code></td>
+<td align="center">N/A</td>
+<td align="center">Reference to the parent node of the enemy fighter; commonly used as an accessor from character states.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>queued_action</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>queued_data</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>queued_extra</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>dummy_interruptable</code></p></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>game_over</code></td>
+<td align="center">false</td>
+<td align="center">Likely set to true when MAX_HEALTH hits 0.</td>
+</tr>
+<tr>
+<td align="center"><code>forfeit</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>will_forfeit</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>applied_style</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>is_color_active</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>is_aura_active</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>is_style_active</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>ivy_effect</code></td>
+<td align="center">false</td>
+<td align="center">?????</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>colliding_with_opponent</code></p></td>
+<td align="center">true</td>
+<td align="center">Presumably a check for collisionbox overlaps between fighters.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>air_movements_left</code></p></td>
+<td align="center">0</td>
+<td align="center">The amount of air options your fighter currently has.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>action_cancels</code></td>
+<td align="center">{}</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>ghost_ready_tick</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>ghost_ready_set</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>got_parried</code></td>
+<td align="center">false</td>
+<td align="center">True if your move was successfully parried by the opponent.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>di_enabled</code></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; enables DI if true.</td>
+</tr>
+<tr>
+<td align="center"><code>turbo_mode</code></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; enables Turbo Mode if true.</td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>infinite_resources</code></p></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; enables infinite resources if true.</td>
+</tr>
+<tr>
+<td align="center"><code>one_hit_ko</code></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; enables OHKO if true.</td>
+</tr>
+<tr>
+<td align="center"><code>burst_enabled</code></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; enables bursting if true.</td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>always_perfect_parry</code></p></td>
+<td align="center">true</td>
+<td align="center">Value determined from pre-match settings; causes every block to parry regardless of timing if true.</td>
+</tr>
+<tr>
+<td align="center"><code>blocked_last_hit</code></td>
+<td align="center">true</td>
+<td align="center">True if you successfully blocked the opponent's last move.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>trail_hp</code></td>
+<td align="center">MAX_HEALTH</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"><code>hp</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"><code>super_meter</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"><code>supers_available</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"><code>combo_proration</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>parried_last_state</code></p></td>
+<td align="center">false</td>
+<td align="center">Most likely set to true if this fighter parried the opponent's last move.</td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>initiative_effect</code></p></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>burst_meter</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"><code>bursts_available</code></td>
+<td align="center">0</td>
+<td align="center">Must be int. N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>busy_interrupt</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>any_available_actions</code></p></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>state_changed</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>on_the_ground</code></td>
+<td align="center">false</td>
+<td align="center">True if the fighter is on the ground.</td>
+</tr>
+<tr>
+<td align="center"><code>nudge_amount</code></td>
+<td align="center">"1.0"</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>feints</code></td>
+<td align="center">2</td>
+<td align="center">Likely tied to the number of free cancels this fighter can use out of neutral.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>current_nudge</code></td>
+<td align="center">{"x":"0","y":"0"}</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>current_di</code></td>
+<td align="center">{"x":"0","y":"0"}</td>
+<td align="center">Current direct input vector for this fighter.</td>
+</tr>
+<tr>
+<td align="center"><code>last_vel</code></td>
+<td align="center">{"x":"0","y":"0"}</td>
+<td align="center">Likely the last recorded velocity for this fighter.</td>
+</tr>
+<tr>
+<td align="center"><code>last_aerial_vel</code></td>
+<td align="center">{"x":"0","y":"0"}</td>
+<td align="center">Likely the last recorded aerial velocity for this fighter.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>combo_moves_used</code></td>
+<td align="center">{}</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>reverse_state</code></td>
+<td align="center">false</td>
+<td align="center">A boolean value likely used to track if the move's "reverse" slider is being used.</td>
+</tr>
+<tr>
+<td align="center"><code>ghost_reverse</code></td>
+<td align="center">false</td>
+<td align="center">A boolean value likely used to track if the move should be reversed for the prediction ghost. Would'nt recommend touching this value.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>nudge_distance_left</code></p></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>can_nudge</code></td>
+<td align="center">false</td>
+<td align="center">Likely a boolean value for if this fighter can nudge.</td>
+</tr>
+<tr>
+<td align="center"><code>parried</code></td>
+<td align="center">false</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>initiative</code></td>
+<td align="center">false</td>
+<td align="center">True if this fighter has initiative.</td>
+</tr>
+<tr>
+<td align="center"><code>aura_particle</code></td>
+<td align="center">null</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>feinting</code></td>
+<td align="center">false</td>
+<td align="center">True if this fighter is feinting.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>last_action</code></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>stance</code></td>
+<td align="center">"Normal"</td>
+<td align="center">Current stance for the fighter.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>parried_hitboxes</code></td>
+<td align="center">[]</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><p class="nowrap"><code>grounded_hits_taken</code></p></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>throw_pos_x</code></td>
+<td align="center">16</td>
+<td align="center">Likely tied to the X distance this fighter will throw the opponent after a grab.</td>
+</tr>
+<tr>
+<td align="center"><code>throw_pos_y</code></td>
+<td align="center">-5</td>
+<td align="center">Likely tied to the Y distance this fighter will throw the opponent after a grab.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>combo_damage</code></td>
+<td align="center">0</td>
+<td align="center">Likely tracks the amount of damage this fighter has taken during a combo.</td>
+</tr>
+<tr>
+<td align="center"><code>hitlag_applied</code></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"><code>forfeit_ticks</code></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>lowest_tick</code></td>
+<td align="center">0</td>
+<td align="center">N/A</td>
+</tr>
 </tbody>
 </table>
 <h2 id="enumerations">Enumerations</h2>
@@ -635,15 +1185,503 @@ Contains properties that determine character metadata and variables that are use
 <td align="center">"0.2"</td>
 <td align="center">N/A</td>
 </tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">DAMAGE_SUPER_SCALE_DIVISOR</td>
+<td align="center">1</td>
+<td align="center">Likely the number that super gain from dealing damage is divided by.</td>
+</tr>
+<tr>
+<td align="center">DAMAGE_TAKEN_SUPER_GAIN_DIVISOR</td>
+<td align="center">3</td>
+<td align="center">Likely the number that super gain from taking damage is divided by.</td>
+</tr>
+<tr>
+<td align="center">HITLAG_COLLISION_TICKS</td>
+<td align="center">4</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">PROJECTILE_PERFECT_PARRY_WINDOW</td>
+<td align="center">3</td>
+<td align="center">Likely the number of ticks that this fighter is alloted to perfectly parry a projectile.</td>
+</tr>
+<tr>
+<td align="center">BURST_ON_DAMAGE_AMOUNT</td>
+<td align="center">5</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">COUNTER_HIT_ADDITIONAL_HITLAG_FRAMES</td>
+<td align="center">3</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MAX_GROUNDED_HITS</td>
+<td align="center">7</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">PARRY_CHIP_DIVISOR</td>
+<td align="center">3</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">PARRY_KNOCKBACK_DIVISOR</td>
+<td align="center">"3"</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">P1_COLOR</td>
+<td align="center">Color("aca2ff")</td>
+<td align="center">Likely the color player 1 will display as to the player.</td>
+</tr>
+<tr>
+<td align="center">P2_COLOR</td>
+<td align="center">Color("aca2ff")</td>
+<td align="center">Likely the color player 2 will display as to the player.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">GUTS_REDUCTIONS</td>
+<td align="center">{"1":"1", "0.70":"0.90", "0.60":"0.80", "0.50":"0.70", "0.40":"0.60", "0.30":"0.55", "0.20":"0.52", "0.10":"0.50", }</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MAX_GUTS</td>
+<td align="center">10</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MAX_DI_COMBO_ENHANCMENT</td>
+<td align="center">15</td>
+<td align="center">Likely the max coefficient for directional input influence.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MAX_BURSTS</td>
+<td align="center">1</td>
+<td align="center">Likely the max amount of bursts this fighter can use from one burst meter.</td>
+</tr>
+<tr>
+<td align="center">BURST_BUILD_SPEED</td>
+<td align="center">4</td>
+<td align="center">Likely the speed at which the burst meter builds.</td>
+</tr>
+<tr>
+<td align="center">MAX_BURST_METER</td>
+<td align="center">1500</td>
+<td align="center">Likely the integer maximum for this fighter's burst meter.</td>
+</tr>
+<tr>
+<td align="center">START_BURSTS</td>
+<td align="center">1</td>
+<td align="center">Likely the amount of bursts this fighter starts with.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MAX_SUPER_METER</td>
+<td align="center">125</td>
+<td align="center">Likely the integer maximum for this fighter's super meter.</td>
+</tr>
+<tr>
+<td align="center">MAX_SUPERS</td>
+<td align="center">9</td>
+<td align="center">Likely the amount of super levels this fighter can store.</td>
+</tr>
+<tr>
+<td align="center">VEL_SUPER_GAIN_DIVISOR</td>
+<td align="center">4</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">NUDGE_DISTANCE</td>
+<td align="center">20</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">PARRY_METER</td>
+<td align="center">50</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">METER_GAIN_MODIFIER</td>
+<td align="center">"1.0"</td>
+<td align="center">N/A</td>
+</tr>
 </tbody>
 </table>
 <h2 id="methods">Methods</h2>
+<div class="spacer"></div>
+
 <p><code>init(pos = null)</code></p>
 <p>Init function</p>
 <p>Serves to handle fighter properties when lobby options are changed; i.e. if one hit K.O. is enabled.</p>
 <p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>apply_style(style)</code></p>
+<p>No information on this function. Does nothing if not using the Steam release of YOMI Hustle.</p>
+<p>returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>reset_color()</code></p>
+<p>Resets the shader parameters for both fighters.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>reset_aura()</code></p>
+<p>Resets the "aura" for both fighters. (???)</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>reset_style()</code></p>
+<p>Resets the "style" for both fighters. (???)</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>reapply_style()</code></p>
+<p>Reapplies "style" (???)</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>start_super()</code></p>
+<p>Emits the <code>super_started</code> signal.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>change_stance_to(stance)</code></p>
+<p>Changes the fighter's stance to a string supplied to the <code>stance</code> argument.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>show_you_label()</code></p>
+<p>Shows the "you" label.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>is_you()</code></p>
+<p>Returns your player I.D. if you are in a multiplayer match.</p>
+<p>Returns <code>Network.player_id, false</code></p>
+<div class="spacer"></div>
+
+<p><code>_ready()</code></p>
+<p>Ready function</p>
+<p>Sets the fighter's sprite animation to <code>"Wait"</code>, does extra work with the state variables array and a couple of signals; please document further.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>on_state_changed(states_stack)</code></p>
+<p>Likely runs whenever this fighter changes states. Does nothing by default.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>on_got_hit()</code></p>
+<p>Runs whenever this fighter gets hit. Does nothing by default.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>gain_burst_meter(amount = null)</code></p>
+<p>Does nothing if bursts arent enabled; adds <code>BURST_BUILD_SPEED</code> to the burst meter if <code>amount</code> is not defined; else, adds <code>amount</code> to the burst meter; if the burst meter is over the limit, gain a burst.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>copy_to()</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>gain_burst()</code></p>
+<p>Handles logic for gaining a burst; gives a burst if the fighter has not reached their limit on bursts.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>use_burst()</code></p>
+<p>Decrements the amount of bursts available by 1 if <code>infinite_resources</code> is set to true.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>use_burst_meter(amount)</code></p>
+<p>Decrements the burst meter by <code>amount</code>.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>use_super_bar()</code></p>
+<p>Removes 1 super level from the fighter; if the fighter does not have a super level, set the bar to empty. Does nothing if <code>infinite_resources</code> is set to true.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>use_super_meter(amount)</code></p>
+<p>Removes <code>amount</code> from the fighter's super meter; if the fighter does not have enough super meter, the bar is set to empty. Does nothing if <code>infinite_resources</code> is set to true.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>stack_move_in_combo(move_name)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>gain_super_meter(amount)</code></p>
+<p>Adds post-stale math <code>amount</code> to the fighter's super meter.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>combo_stale_meter(meter:int)</code></p>
+<p>Handles combo staling math.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>update_data()</code></p>
+<p>Updates the <code>data</code> variable.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>get_playback_input</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>reset_combo()</code></p>
+<p>Resets this fighter's combo.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>incr_combo()</code></p>
+<p>Increments this fighter's combo counter by 1.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>is_colliding_with_opponent</code></p>
+<p>Returns true if this fighter is colliding with the opponent, or is grabbed (?).</p>
+<p>Returns <code>true, false</code></p>
+<div class="spacer"></div>
+
+<p><code>thrown_by(hitbox:ThrowBox)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_process(_delta)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>debug_text()</code></p>
+<p>Debug function. N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>has_armor()</code></p>
+<p>Returns false by default. Probably used for super armor mechanics.</p>
+<p>Returns <code>false</code></p>
+<div class="spacer"></div>
+
+<p><code>launched_by(hitbox)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>hit_by(hitbox)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>set_throw_position(x:int, y:int)</code></p>
+<p>Changes the throw position of this fighter's throw.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>take_damage(damage:int, minimum = 0)</code></p>
+<p>Causes your fighter to take damage, calculates burst gain from damage taken, and gives your opponent super meter based on the damage taken.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>get_guts()</code></p>
+<p>N/A</p>
+<p>Returns <code>current_guts</code></p>
+<div class="spacer"></div>
+
+<p><code>get_combo_stale(count)</code></p>
+<p>N/A</p>
+<p>Returns <code>mod</code></p>
+<div class="spacer"></div>
+
+<p><code>guts_stale_damage(damage:int)</code></p>
+<p>N/A</p>
+<p>Returns <code>damage</code></p>
+<div class="spacer"></div>
+
+<p><code>can_parry_hitbox(hitbox)</code></p>
+<p>N/A</p>
+<p>Returns <code>true, false</code></p>
+<div class="spacer"></div>
+
+<p><code>set_color(color:Color)</code></p>
+<p>Sets the color of this fighter.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>release_opponent()</code></p>
+<p>If the opponent is grabbed, sets their state to the falling state.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>process_extra(extra)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>refresh_air_movements()</code></p>
+<p>Sets the number of air options for this fighter back to maximum.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>refresh_feints()</code></p>
+<p>Sets the number of free cancels for this fighter back to maximum.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>clean_parried_hitboxes()</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>get_opponent_dir()</code></p>
+<p>Returns the difference between your fighter's position and the opponent's position.</p>
+<p>Returns <code>Utils.int_sign(opponent.get_pos().x - get_pos().x)</code></p>
+<div class="spacer"></div>
+
+<p><code>get_advantage()</code></p>
+<p>Returns information regarding frame advantage.</p>
+<p>Returns <code>advantage</code></p>
+<div class="spacer"></div>
+
+<p><code>set_lowest_tick()</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>tick_before()</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>toggle_quit_graphic(on = null)</code></p>
+<p>Toggles the 'QUITTER" graphic; also handles the sound for quitters. Shame on them.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>tick()</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>set_ghost_colors()</code></p>
+<p>Responsible for handling the colors of the prediction ghosts.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>set_facing(facing:int, force = false)</code></p>
+<p>Causes the fighter to face a set direction based on <code>facing</code>, unless <code>reverse_state</code> is true. Forcibly causes the fighter to face a set direction regardless of <code>reverse_state</code> if <code>force</code> is set to true.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>update_facing()</code></p>
+<p>Updates the direction this fighter is facing, based on the opponent's location.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>on_state_interruptable(state)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>on_state_hit_cancellable(state)</code></p>
+<p>N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>on_action_selected(action, data, extra)</code></p>
+<p>Called whenever the player selects an action for this fighter.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>forfeit()</code></p>
+<p>Sets <code>will_forfeit</code> to true.</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
+<p><code>_draw()</code></p>
+<p>Does nothing by default. N/A</p>
+<p>Returns <code>null</code></p>
+<div class="spacer"></div>
+
 <h2 id="signals">Signals</h2>
-<p><code>signal action_selected(action, data)</code></p>
+<p><code>action_selected(action, data)</code></p>
+<p>N/A</p>
+<p><code>super_started()</code></p>
+<p>N/A</p>
+<p><code>parried()</code></p>
+<p>N/A</p>
+<p><code>undo()</code></p>
+<p>N/A</p>
+<p><code>forfeit()</code></p>
 <p>N/A</p>
 <h2 id="credits">Credits</h2>
 <p>Info contributed by <a href="https://rmld00dlenoodles.github.io/YOMIDoku/about/#contact-information">D00dlenoodles</a></p>
