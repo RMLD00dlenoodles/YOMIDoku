@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+<h1 style="text-align: center;">Welcome to YOMIDoku</h1>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<p style="font-size:25px;font-family:roboto;font-weight:75", align="center">
+The unofficial Your Only Move Is Hustle source code documentation site.
+</p>
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<p align="center">
+<img src="assets/images/favicon.png" alt="Text" width="100" height="200">
+</p>

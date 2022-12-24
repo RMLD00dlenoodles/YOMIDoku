@@ -1,2 +1,43 @@
-site_name: My Docs
-theme: mkdocs
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - def_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - toc:
+      permalink: false
+  - tables
+  
+plugins:
+    - search
+    
+site_name: YOMIDoku
+
+theme: 
+    name: material
+    palette:
+        scheme: slate
+    features:
+    - header.autohide
+    - content.code.annotate
+
+nav:
+    - Home: index.md
+    - About: about.md
+    - Documentation:
+        - Fighter: Documentation/BaseChar.md
+        - BaseProjectile: Documentation/BaseProjectile.md
+        - ObjectState:
+            - ObjectState: Documentation/ObjectState.md
+            - DefaultFireball: Documentation/DefaultFireball.md
+            - DirProjectileDefault: Documentation/DirProjectileDefault.md
+    - Miscellaneous:
+        - Style Guide: Miscellaneous/StyleGuide.md
