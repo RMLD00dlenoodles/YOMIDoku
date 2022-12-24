@@ -1,1 +1,1 @@
-#Welcome to the <a href="https://rmld00dlenoodles.github.io/YOMIDoku">YOMIDoku</a>github page.
+Welcome to the YOMIDoku github page.
